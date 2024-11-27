@@ -15,6 +15,11 @@ import {useState} from 'react';
 export default function ImageCarousel({imagenes}){
     const [indiceImagen, setIndiceImagen] = useState(0);
 
+    /**
+     * Maneja el onClick del boton para pasar a la siguiente imagen 
+     * añadiendo 1 al indice o, si es la ultima imagen, reestableciendo el
+     * indice a 0.
+     */
     function handleNextImagen(){
       if(indiceImagen == (imagenes.length - 1)){
         setIndiceImagen(0);
@@ -23,6 +28,11 @@ export default function ImageCarousel({imagenes}){
       }
     }
 
+    /**
+     * Maneja el onClick del boton para volver a la anterior imagen 
+     * quitando 1 al indice o, si es la primera imagen, 
+     * poniendo el indice en la ultima imagen.
+     */
     function handlePreviousImagen(){
       if(indiceImagen == 0){
         setIndiceImagen(imagenes.length - 1);
@@ -31,6 +41,11 @@ export default function ImageCarousel({imagenes}){
       }
     }
 
+    /**
+     * Devuelve la imagen correspondiente con su titulo 
+     * y un boton para pasar a la anterior y otro
+     * para pasar a la siguuiente.
+     */
     return <div>
         <h2>{imagenes[indiceImagen].titulo}</h2>
         <img

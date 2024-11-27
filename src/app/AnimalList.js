@@ -26,6 +26,11 @@ export default function AnimalList(){
     const[inputEdad, setInputEdad] = useState('');
     const[inputSexo, setInputSexo] = useState('macho');
 
+    /**
+     * Comprueba si el nombre y la especie estan vacios.
+     * Si lo estan muestra mensaje de error
+     * Si no lo estan añade el animal al array y vacia los campos
+     */
     function comprobarFormulario(e){
         e.preventDefault();
         if((inputNombre != '')&&(inputEspecie != '')){
@@ -49,6 +54,16 @@ export default function AnimalList(){
         }
     }
 
+    /**
+     *  Devuelve un formulario con campos para ingresar:
+     *       Nombre.
+     *       Especie del animal.
+     *       Edad.
+     *       Sexo (tipo select donde solo se puede seleccionar macho o hembra).
+     *   Un botón para agregar el animal a la lista.
+     *   Una lista de componentes Animal que muestra todos los animales agregados usando map
+     *  
+     */
     return (
         <div>
             <h2>Formulario para agregar Animal</h2><br></br>
